@@ -5,38 +5,38 @@
     <title>Todo list</title>
 </head>
 <body>
-    <header class="todos-header">
+    <header class="todos-header" role="banner">
         <h1>todos</h1>
     </header>
     <div class="todos-block">
-        <div class="todos-add-new-assignment">
+        <div class="todos-add-new-assignment" role="heading" aria-label="Header">
             <img src="images/select-all.png">
-            <input type="text" placeholder="What's needs to be done?">
+            <input type="text" placeholder="What's needs to be done?" role="textbox">
         </div>
-        <div class="todos-nowdays-list-assignments">
-            <input name="todos-task-element" type="checkbox" id="HTML">
+        <div class="todos-nowdays-list-assignments" role="list">
+            <input name="todos-task-element" type="checkbox" id="HTML" role="listitem">
             <label for="HTML">HTML</label>
             <br>
-            <input name="todos-task-element" type="checkbox" id="CSS">
+            <input name="todos-task-element" type="checkbox" id="CSS" role="listitem">
             <label for="CSS">CSS</label>
             <br>
-            <input name="todos-task-element" type="checkbox" id="JS" >
+            <input name="todos-task-element" type="checkbox" id="JS" role="listitem">
             <label for="JS">JS</label>
             <br>
-            <input name="todos-task-element" type="checkbox" id="JS_tools">
+            <input name="todos-task-element" type="checkbox" id="JS_tools" role="listitem">
             <label for="JS_tools">JS tools</label>
             <br>
         </div>
-        <div class="todos-sorting-and-cleaning">
+        <div class="todos-sorting-and-cleaning" role="menu">
             <p>
                 <span id="todos-left-items">4 items left</span>
-                <input name="todos-selector" type="radio" id="all">
+                <input name="todos-selector" type="radio" id="all" role="radio">
                 <label for="all">All</label>
-                <input name="todos-selector" type="radio" id="active">
+                <input name="todos-selector" type="radio" id="active" role="radio">
                 <label for="active">Active</label>
-                <input name="todos-selector" type="radio" id="completed">
+                <input name="todos-selector" type="radio" id="completed" role="radio">
                 <label for="completed">Completed</label>
-                <input name="todos-clear-button" type="button" value="Clear completed">
+                <input name="todos-clear-button" type="button" value="Clear completed" role="button">
             </p>
         </div>
     </div>
