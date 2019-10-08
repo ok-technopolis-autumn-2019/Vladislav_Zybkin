@@ -1,44 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Todo list</title>
-</head>
-<body>
-    <header class="todos-header" role="banner">
-        <h1>todos</h1>
-    </header>
-    <div class="todos-block">
-        <div class="todos-add-new-assignment" role="heading" aria-label="Header">
-            <img src="images/select-all.png">
-            <input type="text" placeholder="What's needs to be done?" role="textbox">
-        </div>
-        <div class="todos-nowdays-list-assignments" role="list">
-            <input name="todos-task-element" type="checkbox" id="HTML" role="listitem">
-            <label for="HTML">HTML</label>
-            <br>
-            <input name="todos-task-element" type="checkbox" id="CSS" role="listitem">
-            <label for="CSS">CSS</label>
-            <br>
-            <input name="todos-task-element" type="checkbox" id="JS" role="listitem">
-            <label for="JS">JS</label>
-            <br>
-            <input name="todos-task-element" type="checkbox" id="JS_tools" role="listitem">
-            <label for="JS_tools">JS tools</label>
-            <br>
-        </div>
-        <div class="todos-sorting-and-cleaning" role="menu">
-            <p>
-                <span id="todos-left-items">4 items left</span>
-                <input name="todos-selector" type="radio" id="all" role="radio">
-                <label for="all">All</label>
-                <input name="todos-selector" type="radio" id="active" role="radio">
-                <label for="active">Active</label>
-                <input name="todos-selector" type="radio" id="completed" role="radio">
-                <label for="completed">Completed</label>
-                <input name="todos-clear-button" type="button" value="Clear completed" role="button">
-            </p>
-        </div>
+  </head>
+  <body>
+    <div class="todo-app">
+      <header class="todo-app__header">
+        <h1 class="title">Todos</h1>
+      </header>
+      <main class="todo-app__frame">
+        <section class="todo-app__main-controls main-controls">
+          <div class="main-controls__select-all">
+            <button class="main-controls__select-all-button">Select all</button>
+          </div>
+          <div class="main-controls__create-new">
+            <input type="text" class="main-controls__create-new-assignment" placeholder="What's needs to be done?" aria-label="Add new assignment" autofocus="autofocus"/>
+          </div>
+        </section>
+        <section class="todo-app__assignments-list">
+          <ul class="todo-app__assignments assignments">
+            <li class="todo-app__assignment-item assignment-item">
+              <div class="assignment-item__current-view">
+                <input 
+                  type="checkbox"  
+                  class="assignment-item__status" 
+                  aria-label="Completed assignment: HTML"
+                />
+                <span class="assignment-item__text" role="listitem">HTML</span>
+                <button class="assignment-item__delte-button">Delete assignment</button>
+              </div>
+              <div class="assignment-item-edit" hidden="hidden">
+                <input 
+                  type="text"
+                  class="assignment-item__input"
+                  value="HTML"
+                  aria-label="Edit assignment: HTML"
+                />
+              </div>
+            </li>
+            <li class="todo-app__assignment-item assignment-item">
+              <div class="assignment-item__current-view">
+                <input 
+                  type="checkbox"  
+                  class="assignment-item__status" 
+                  aria-label="Completed assignment: CSS"
+                />
+                <span class="assignment-item__text" role="listitem">CSS</span>
+                <button class="assignment-item__delte-button">Delete assignment</button>
+              </div>
+              <div class="assignment-item-edit" hidden="hidden">
+                <input 
+                  type="text"
+                  class="assignment-item__input"
+                  value="CSS"
+                  aria-label="Edit assignment: CSS"
+                />
+              </div>
+            </li>
+            <li class="todo-app__assignment-item assignment-item">
+              <div class="assignment-item__current-view">
+                <input 
+                  type="checkbox"  
+                  class="assignment-item__status" 
+                  aria-label="Completed assignment: JS"
+                />
+                <span class="assignment-item__text" role="listitem">JS</span>
+                <button class="assignment-item__delte-button">Delete assignment</button>
+              </div>
+              <div class="assignment-item-edit" hidden="hidden">
+                <input 
+                  type="text"
+                  class="assignment-item__input"
+                  value="JS"
+                  aria-label="Edit assignment: JS"
+                />
+              </div>
+            </li>
+            <li class="todo-app__assignment-item assignment-item">
+              <div class="assignment-item__current-view">
+                <input 
+                  type="checkbox"  
+                  class="assignment-item__status" 
+                  aria-label="Completed assignment: JS tools"
+                />
+                <span class="assignment-item__text" role="listitem">JS tools</span>
+                <button class="assignment-item__delte-button">Delete assignment</button>
+              </div>
+              <div class="assignment-item-edit" hidden="hidden">
+                <input 
+                  type="text"
+                  class="assignment-item__input"
+                  value="JS tools"
+                  aria-label="Edit assignment: JS tools"
+                />
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section class="todo-app__actions-bar actions-bar" role="menubar">
+            <div class="actions-bar__item" role="menuitem">
+              <div class="assignments-counter">4 items left</div>
+            </div>
+            <div class="actions-bar__item" role="group" label="Filter assignments by status">
+              <label class="assignments-filter">
+                <input type="radio" class="assignment-filter__input" name="filter" checked="checked" value="All" role="radio" />
+                <span class="assignments-filter__text" aria-label="Select all assignments">All</span>
+              </label> 
+              <label class="assignments-filter">
+                <input type="radio" class="assignment-filter__input" name="filter" value="Active" role="radio" />
+                <span class="assignments-filter__text" aria-label="Select active assignments">Active</span>
+              </label>
+              <label class="assignments-filter">
+                <input type="radio" class="assignment-filter__input" name="filter" value="Completed" role="radio" />
+                <span class="assignments-filter__text" aria-label="Select completer assignments">Completed</span>
+              </label>   
+            </div>
+            <div class="actions-bar__item" role="menuitem">
+              <button class="assignments-clear-completed-button">Clear completed</button>
+            </div>
+        </section>
+      </main>
     </div>
-</body>
+  </body>
 </html>
