@@ -1,43 +1,75 @@
 
 .todo-app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-content: center;
+  position: relative;
+  width: 80%;
+  max-width: 560px;
+  min-width: 480px;
+  margin: 0 auto 20px;
 }
 
-.todo-app section {
+.todo-app::before {
+  content: ' ';
+  position: absolute;
+  top: 100%;
+  left: 2px;
+  right: 2px;
+  height: 5px;
+  z-index: -1;
+  background-color: #fff;
+  box-shadow: 0 2px 4px;
+}
+
+.todo-app::after {
+  content: ' ';
+  position: absolute;
+  top: 100%;
+  left: 4px;
+  right: 4px;
+  height: 10px;
+  z-index: -2;
+  background-color: #fff;
+  box-shadow: 0 2px 4px;
+}
+
+.todo-app__frame {
   border: 1px solid silver;
+  width: 562px;
 }
 
 .todo-app__header h1 {
   font-size: 100px;
   font-family: 'Open Sans', sans-serif;
-  font-weight: 100;
+  font-weight: 70;
   line-height: 21px;
   letter-spacing: -2.5px;
   color: #CCCCCC;
+  text-align: center;
 }
 
 .todo-app__main-controls {
   display: flex;  
   justify-content: space-between;
-  padding: 17px;
 }
 
-.main-controls__create-new input[type="text"] {
+.main-controls__create-new-assignment {
+  font-size: 24px;
   border: none;
   font-family: 'Open Sans', sans-serif;
   font-style: italic;
-  width: 100%;
+  width: 90%
 }
 
 .main-controls__create-new {
-  flex-grow: 10;
+  width: 500px;
+  margin-top: 24px;
+  margin-bottom: 20px;
 }
 
 .main-controls__select-all {
-  flex-grow: 1;
+  width: 62px;
+  margin: 27px 0px 23px 17px;
+  height: 15px;
+  width: 32px;
 }
 
 .main-controls__select-all-button {
@@ -67,66 +99,77 @@
 
 .assignment-item__current-view { 
   display: flex;
-  width: 562px;
+  flex-grow: 1;
   height: 64px;
   align-items: center;
   padding: 5px;
-  box-shadow: inset 0 -1px #E6E6E6;
-  min-height: 30px;
 }
 
 .assignment-item__current-view:hover {
   background-color: lightgray;
 }
 
-.assignment-item__current-view input[type="checkbox"] { 
-  flex-grow: 1;
+.assignment-item__status {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
   position: absolute;
-  opacity: 0;
-  vertical-align: bottom;
+  left: -9999px;    
 }
 
-.input-assignment:before {
-  content: " ";
-  margin-left: 11px;
-  margin-right: 10px;
-  display: inline-block;
+.assignment-item__status-icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  box-sizing: border-box;
+  margin: 0 12px;
+  border: 1px #E6E6E6 solid;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.assignment-item__status:focus + .assignment-item__status-icon {
+  border-color: #CCCCCC;
+}
+
+.assignment-item__current-view: hover .assignment-item__status:not(:checked) + .assignment-item__status-icon {
+  border-color: #CCCCCC;
+}
+
+
+.assignment-item__status:checked + .assignment-item__status-icon {
+  background-image: url(images/completed.png);
+  background-position: 6px 8px;
   background-repeat: no-repeat;
-  width: 40px;
-  height: 40px;
-  position: relative;
-  background-image: url(images/notdone.png);
-  vertical-align: bottom
+  border-color: #5DC2AF;
 }
 
-input[type="checkbox"]:checked + .input-assignment:before {
-  width: 40px;
-  height: 40px;
-  background-image: url(images/done.png);
-}
-
-.assignment-item__current-view label { 
-  flex-grow: 20;
+.assignment-item__text { 
+  flex-grow: 1;
   font-family: 'Open Sans', sans-serif;
   font-size: 24px;
   vertical-align: center;
   text-align: left;
+  padding: 12px 0;
+  word-break: break-word;
   letter-spacing: -0.6px;
 }
 
 .assignment-item__current-view .assignment-item__delete-button {
-  display: none;
-}
-
-.assignment-item__current-view:hover .assignment-item__delete-button { 
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  margin: -9999px 4px 0 12px;
+  text-indent: -9999px;
+  border: none; 
   background-color: lightgray;
-  display: inline;
   background-image: url(images/close.png);
   background-repeat: no-repeat;
   background-position: center;
-  border: hidden;
-  text-indent: -100cm;
-  flex-grow: 1;
+}
+
+.assignment-item__current-view:hover .assignment-item__delete-button { 
+  margin-top: 0px;
 }
 
 .assignments-counter {
@@ -146,17 +189,25 @@ input[type="checkbox"]:checked + .input-assignment:before {
   width: 33px;
   height: 22px;
   align-items: center;
+  border: 2px solid transparent;
+}
+
+input[type="radio"]:focus + .assignments-filter {
+  border-color: red;      
 }
 
 input[type="radio"]:checked + .assignments-filter {
-  margin: 5px;
-  padding: 1px;
-  border: 2px solid #E6E6E6;
+  border-color: #E6E6E6;
 }
 
 .assignments-filter__input {
-  display: none;
-}
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  left: -9999px;    
+  overflow: hidden;
+}     
 
 .assignment-filter__text {
   text-align: right;
