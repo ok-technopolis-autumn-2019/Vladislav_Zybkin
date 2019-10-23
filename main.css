@@ -1,3 +1,6 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
 
 .todo-app {
   position: relative;
@@ -32,51 +35,50 @@
 }
 
 .todo-app__frame {
-  border: 1px solid silver;
+  border: 1px solid #E6E6E6;
   width: 562px;
 }
 
-.todo-app__header h1 {
+.title {
   font-size: 100px;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 70;
-  line-height: 21px;
-  letter-spacing: -2.5px;
+  font-weight: 100;
+  line-height: 1.2;
   color: #CCCCCC;
   text-align: center;
+  margin: 0px;
 }
 
 .todo-app__main-controls {
   display: flex;  
-  justify-content: space-between;
+  width: 562px;
+  height: auto;
+  border-bottom: 1px solid #E6E6E6;
 }
 
 .main-controls__create-new-assignment {
   font-size: 24px;
+  width: 500px;
+  height: 64px;
   border: none;
   font-family: 'Open Sans', sans-serif;
   font-style: italic;
-  width: 90%
+  width: 99%
+}
+
+.main-controls__create-new-assignment:focus {
+  border: 1px solid gray;
 }
 
 .main-controls__create-new {
   width: 500px;
-  margin-top: 24px;
-  margin-bottom: 20px;
-}
-
-.main-controls__select-all {
-  width: 62px;
-  margin: 27px 0px 23px 17px;
-  height: 15px;
-  width: 32px;
+  height: 66px;
 }
 
 .main-controls__select-all-button {
   background-color: #FFFFFF;
-  background-image: url(images/select-all.png);
-  width: 30px;
-  height: 30px;
+  background-image: url(images/select-all.svg);
+  width: 62px;
+  height: 66px;
   background-repeat: no-repeat;
   background-position: center;
   border: hidden;
@@ -84,7 +86,11 @@
   flex-grow: 1;
 }
 
-.todo-app__assignments-list ul {
+.main-controls__select-all-button:focus {
+    border: 1px solid gray;
+}
+
+.todo-app__assignments {
   display: flex;
   align-content: flex-start;
   flex-direction: column;
@@ -93,20 +99,20 @@
 }
 
 .todo-app__assignment-item  {
-  border: 1px solid silver;
+  border-bottom: 1px solid #E6E6E6;
   list-style-type: none;
 }
 
 .assignment-item__current-view { 
   display: flex;
   flex-grow: 1;
-  height: 64px;
+  height: auto;
   align-items: center;
   padding: 5px;
 }
 
 .assignment-item__current-view:hover {
-  background-color: lightgray;
+  background-color: #FAFAFA;
 }
 
 .assignment-item__status {
@@ -123,7 +129,7 @@
   height: 36px;
   box-sizing: border-box;
   margin: 0 12px;
-  border: 1px #E6E6E6 solid;
+  border: 1px solid #E6E6E6;
   border-radius: 50%;
   background-color: #fff;
 }
@@ -132,13 +138,13 @@
   border-color: #CCCCCC;
 }
 
-.assignment-item__current-view: hover .assignment-item__status:not(:checked) + .assignment-item__status-icon {
+.assignment-item__current-view:hover .assignment-item__status:not(:checked) + .assignment-item__status-icon {
   border-color: #CCCCCC;
 }
 
 
 .assignment-item__status:checked + .assignment-item__status-icon {
-  background-image: url(images/completed.png);
+  background-image: url(images/completed.svg);
   background-position: 6px 8px;
   background-repeat: no-repeat;
   border-color: #5DC2AF;
@@ -155,21 +161,32 @@
   letter-spacing: -0.6px;
 }
 
-.assignment-item__current-view .assignment-item__delete-button {
+.assignment-item__delete-button {
   flex-shrink: 0;
   width: 36px;
   height: 36px;
+  color: #EBDFDF;
   margin: -9999px 4px 0 12px;
   text-indent: -9999px;
   border: none; 
-  background-color: lightgray;
-  background-image: url(images/close.png);
+  background-color: #FAFAFA;
+  background-image: url(images/close.svg);
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .assignment-item__current-view:hover .assignment-item__delete-button { 
   margin-top: 0px;
+}
+
+.assignment-item__current-view:hover .assignment-item__delete-button:focus { 
+  margin-top: 0px;
+  background-color: #FAFAFA;
+}
+
+.assignment-item__delete-button:focus { 
+  margin-top: 0px;
+  background-color: #fff;
 }
 
 .assignments-counter {
@@ -181,6 +198,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 5px;
+  font-size: 14px;
 }
 
 .assignments-filter {
@@ -188,8 +206,8 @@
   padding: 1px;
   width: 33px;
   height: 22px;
-  align-items: center;
   border: 2px solid transparent;
+  align-items: center;
 }
 
 input[type="radio"]:focus + .assignments-filter {
@@ -210,11 +228,14 @@ input[type="radio"]:checked + .assignments-filter {
 }     
 
 .assignment-filter__text {
-  text-align: right;
+  text-align: center;
 }
 
 .assignments-clear-completed-button {
   padding: 0;
+  font-weight: 300px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
   border: none;
   background: none;
 }
