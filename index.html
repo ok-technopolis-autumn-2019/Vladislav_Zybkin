@@ -3,11 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <title>Todo list</title>
+    <link href="main.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="todo-app">
       <header class="todo-app__header">
-        <h1 class="title">Todos</h1>
+        <h1 class="title">todos</h1>
       </header>
       <main class="todo-app__frame">
         <section class="todo-app__main-controls main-controls">
@@ -26,9 +28,11 @@
                   type="checkbox"  
                   class="assignment-item__status" 
                   aria-label="Completed assignment: HTML"
+                  id="HTML-checkbox"
                 />
+                <label class="assignment-item__status-icon" for="HTML-checkbox"></label>
                 <span class="assignment-item__text" role="listitem">HTML</span>
-                <button class="assignment-item__delte-button">Delete assignment</button>
+                <button class="assignment-item__delete-button">Delete assignment</button>
               </div>
               <div class="assignment-item-edit" hidden="hidden">
                 <input 
@@ -45,9 +49,11 @@
                   type="checkbox"  
                   class="assignment-item__status" 
                   aria-label="Completed assignment: CSS"
+                  id="CSS-checkbox"
                 />
+                <label class="assignment-item__status-icon" for="CSS-checkbox"></label> 
                 <span class="assignment-item__text" role="listitem">CSS</span>
-                <button class="assignment-item__delte-button">Delete assignment</button>
+                <button class="assignment-item__delete-button">Delete assignment</button>
               </div>
               <div class="assignment-item-edit" hidden="hidden">
                 <input 
@@ -64,9 +70,11 @@
                   type="checkbox"  
                   class="assignment-item__status" 
                   aria-label="Completed assignment: JS"
+                  id="JS-checkbox"
                 />
+                <label class="assignment-item__status-icon" for="JS-checkbox"></label>
                 <span class="assignment-item__text" role="listitem">JS</span>
-                <button class="assignment-item__delte-button">Delete assignment</button>
+                <button class="assignment-item__delete-button">Delete assignment</button>
               </div>
               <div class="assignment-item-edit" hidden="hidden">
                 <input 
@@ -83,9 +91,11 @@
                   type="checkbox"  
                   class="assignment-item__status" 
                   aria-label="Completed assignment: JS tools"
+                  id="JS-tools-checkbox"
                 />
+                <label class="assignment-item__status-icon" for="JS-tools-checkbox"></label>
                 <span class="assignment-item__text" role="listitem">JS tools</span>
-                <button class="assignment-item__delte-button">Delete assignment</button>
+                <button class="assignment-item__delete-button">Delete assignment</button>
               </div>
               <div class="assignment-item-edit" hidden="hidden">
                 <input 
@@ -103,18 +113,18 @@
               <div class="assignments-counter">4 items left</div>
             </div>
             <div class="actions-bar__item" role="group" aria-label="Filter assignments by status">
-              <label class="assignments-filter">
-                <input type="radio" class="assignment-filter__input" name="filter" checked="checked" value="All" role="radio" />
+              <input type="radio" class="assignments-filter__input" name="filter" checked="checked" value="All" role="radio" id="all-radio"/>
+              <label for="all-radio" class="assignments-filter">
                 <span class="assignments-filter__text" aria-label="Select all assignments">All</span>
               </label> 
-              <label class="assignments-filter">
-                <input type="radio" class="assignment-filter__input" name="filter" value="Active" role="radio" />
+              <input type="radio" class="assignments-filter__input" name="filter" value="Active" role="radio" id="active-radio"/>
+              <label for="active-radio" class="assignments-filter">
                 <span class="assignments-filter__text" aria-label="Select active assignments">Active</span>
               </label>
-              <label class="assignments-filter">
-                <input type="radio" class="assignment-filter__input" name="filter" value="Completed" role="radio" />
-                <span class="assignments-filter__text" aria-label="Select completer assignments">Completed</span>
-              </label>   
+              <input type="radio" class="assignments-filter__input" name="filter" value="Completed" role="radio" id ="completed-radio"/>             
+              <label for="completed-radio" class="assignments-filter">
+                <span class="assignments-filter__text" aria-label="Select completer assignments">Completed</span> 
+              </label> 
             </div>
             <div class="actions-bar__item" role="menuitem">
               <button class="assignments-clear-completed-button">Clear completed</button>

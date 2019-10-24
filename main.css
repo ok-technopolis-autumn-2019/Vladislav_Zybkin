@@ -1,0 +1,242 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.todo-app {
+  position: relative;
+  width: 80%;
+  max-width: 560px;
+  min-width: 480px;
+  margin: 0 auto 20px;
+}
+
+.todo-app::before {
+  content: ' ';
+  position: absolute;
+  top: 100%;
+  left: 2px;
+  right: 2px;
+  height: 5px;
+  z-index: -1;
+  background-color: #fff;
+  box-shadow: 0 2px 4px;
+}
+
+.todo-app::after {
+  content: ' ';
+  position: absolute;
+  top: 100%;
+  left: 4px;
+  right: 4px;
+  height: 10px;
+  z-index: -2;
+  background-color: #fff;
+  box-shadow: 0 2px 4px;
+}
+
+.todo-app__frame {
+  border: 1px solid #E6E6E6;
+  background-color: #fff;
+}
+
+.title {
+  font-size: 100px;
+  font-weight: 100;
+  line-height: 1.2;
+  color: #CCCCCC;
+  text-align: center;
+  margin: 0px;
+}
+
+.todo-app__main-controls {
+  display: flex;  
+  border-bottom: 1px solid #E6E6E6;
+}
+
+.main-controls__create-new-assignment {
+  font-size: 24px;
+  height: 66px;
+  font-family: 'Open Sans', sans-serif;
+  font-style: italic;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+}
+
+.main-controls__create-new-assignment:focus {
+  border: 1px solid gray;
+}
+
+.main-controls__create-new {
+  flex-grow: 1;
+  height: 66px;
+}
+
+.main-controls__select-all-button {
+  background-color: #FFFFFF;
+  background-image: url(images/select-all.svg);
+  width: 62px;
+  height: 66px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: hidden;
+  text-indent: -100cm;
+  flex-grow: 1;
+}
+
+.main-controls__select-all-button:focus {
+    border: 1px solid gray;
+}
+
+.todo-app__assignments {
+  display: flex;
+  align-content: flex-start;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+}
+
+.todo-app__assignment-item  {
+  border-bottom: 1px solid #E6E6E6;
+  list-style-type: none;
+}
+
+.assignment-item__current-view { 
+  display: flex;
+  flex-grow: 1;
+  height: auto;
+  align-items: center;
+  padding: 5px;
+}
+
+.assignment-item__current-view:hover {
+  background-color: #FAFAFA;
+}
+
+.assignment-item__status {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: -9999px;    
+}
+
+.assignment-item__status-icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  box-sizing: border-box;
+  margin: 0 12px;
+  border: 1px solid #E6E6E6;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.assignment-item__status:focus + .assignment-item__status-icon {
+  border-color: #CCCCCC;
+}
+
+.assignment-item__current-view:hover .assignment-item__status:not(:checked) + .assignment-item__status-icon {
+  border-color: #CCCCCC;
+}
+
+
+.assignment-item__status:checked + .assignment-item__status-icon {
+  background-image: url(images/completed.svg);
+  background-position: 6px 8px;
+  background-repeat: no-repeat;
+  border-color: #5DC2AF;
+}
+
+.assignment-item__text { 
+  flex-grow: 1;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+  text-align: left;
+  padding: 12px 0;
+  word-break: break-word;
+  letter-spacing: -0.6px;
+}
+
+.assignment-item__delete-button {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  color: #EBDFDF;
+  margin: -9999px 4px 0 12px;
+  text-indent: -9999px;
+  border: none; 
+  background-color: #FAFAFA;
+  background-image: url(images/close.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.assignment-item__current-view:hover .assignment-item__delete-button { 
+  margin-top: 0px;
+}
+
+.assignment-item__current-view:hover .assignment-item__delete-button:focus { 
+  margin-top: 0px;
+  background-color: #FAFAFA;
+}
+
+.assignment-item__delete-button:focus { 
+  margin-top: 0px;
+  background-color: #fff;
+}
+
+.assignments-counter {
+  margin-left: 5px;
+}
+
+.todo-app__actions-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.assignments-filter {
+  margin: 5px;
+  padding: 1px;
+  width: 33px;
+  height: 22px;
+  border: 2px solid transparent;
+  align-items: center;
+}
+
+input[type="radio"]:focus + .assignments-filter {
+  border-color: red;      
+}
+
+input[type="radio"]:checked + .assignments-filter {
+  border-color: #E6E6E6;
+}
+
+.assignments-filter__input {
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  left: -9999px;    
+  overflow: hidden;
+}     
+
+.assignment-filter__text {
+  text-align: center;
+}
+
+.assignments-clear-completed-button {
+  padding: 0;
+  font-weight: 300px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  border: none;
+  background: none;
+}
+
+
+
+
