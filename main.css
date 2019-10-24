@@ -36,7 +36,7 @@ body {
 
 .todo-app__frame {
   border: 1px solid #E6E6E6;
-  width: 562px;
+  background-color: #fff;
 }
 
 .title {
@@ -50,19 +50,17 @@ body {
 
 .todo-app__main-controls {
   display: flex;  
-  width: 562px;
-  height: auto;
   border-bottom: 1px solid #E6E6E6;
 }
 
 .main-controls__create-new-assignment {
   font-size: 24px;
-  width: 500px;
-  height: 64px;
-  border: none;
+  height: 66px;
   font-family: 'Open Sans', sans-serif;
   font-style: italic;
-  width: 99%
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid transparent;
 }
 
 .main-controls__create-new-assignment:focus {
@@ -70,7 +68,7 @@ body {
 }
 
 .main-controls__create-new {
-  width: 500px;
+  flex-grow: 1;
   height: 66px;
 }
 
@@ -154,7 +152,6 @@ body {
   flex-grow: 1;
   font-family: 'Open Sans', sans-serif;
   font-size: 24px;
-  vertical-align: center;
   text-align: left;
   padding: 12px 0;
   word-break: break-word;
