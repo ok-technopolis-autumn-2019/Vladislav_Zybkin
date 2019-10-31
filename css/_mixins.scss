@@ -1,0 +1,18 @@
+@mixin shadow-message {
+  content: ' ';
+  position: absolute;
+  top: 100%;
+  background-color: $primary-background-color;
+  box-shadow: 0 2px 4px;
+}
+
+@mixin insert-image-message {
+  text-indent: $hidden-shift;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+}
+
+@mixin border-values {
+  border: $primary-border-values;
+}

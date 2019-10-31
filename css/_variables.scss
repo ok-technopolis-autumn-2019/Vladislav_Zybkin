@@ -1,0 +1,33 @@
+$font-stack: 'Open Sans', sans-serif;
+$footer-font-size: 14px;
+$title-font-size: 100px;
+$new-item-font-size: 24px;
+
+//colors
+$primary-background-color: #FFF;
+$light-gray-1: #E6E6E6;
+$light-gray-2: #CCCCCC;
+$light-gray-3: #FAFAFA;
+$light-green: #5DC2AF;
+$invisible-color: transparent;
+
+
+$primary-border-values: 1px solid $light-gray-1;
+$hidden-shift: -9999px;
+
+//sizes
+$assignment-item-status-size: 30px;
+$assignment-status-icon-size: 36px;
+$delete-button-size: 36px;
+
+//shadow sizes and shifts
+//first
+$shadow-left-shift-1: 2px;
+$shadow-right-shift-1: $shadow-left-shift-1;
+$shadow-height-1: 5px;
+//second
+$shadow-left-shift-2: 2 * $shadow-left-shift-1;
+$shadow-right-shift-2: 2 * $shadow-right-shift-1;
+$shadow-height-2: 2 * $shadow-height-1;
+
+
