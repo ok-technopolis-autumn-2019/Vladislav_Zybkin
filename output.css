@@ -1,5 +1,5 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .todo-app {
@@ -11,27 +11,27 @@ body {
 }
 
 .todo-app::before {
-  content: ' ';
+  content: " ";
   position: absolute;
   top: 100%;
+  background-color: #FFF;
+  box-shadow: 0 2px 4px;
   left: 2px;
   right: 2px;
   height: 5px;
   z-index: -1;
-  background-color: #FFF;
-  box-shadow: 0 2px 4px;
 }
 
 .todo-app::after {
-  content: ' ';
+  content: " ";
   position: absolute;
   top: 100%;
+  background-color: #FFF;
+  box-shadow: 0 2px 4px;
   left: 4px;
   right: 4px;
   height: 10px;
   z-index: -2;
-  background-color: #FFF;
-  box-shadow: 0 2px 4px;
 }
 
 .todo-app__frame {
@@ -56,7 +56,7 @@ body {
 .main-controls__create-new-assignment {
   font-size: 24px;
   height: 66px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-style: italic;
   width: 100%;
   box-sizing: border-box;
@@ -73,14 +73,14 @@ body {
 }
 
 .main-controls__select-all-button {
-  background-color: #FFFFFF;
+  text-indent: -9999px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  background-color: #FFF;
   background-image: url(images/select-all.svg);
   width: 62px;
   height: 66px;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: hidden;
-  text-indent: -100cm;
   flex-grow: 1;
 }
 
@@ -96,7 +96,7 @@ body {
   padding: 0px;
 }
 
-.todo-app__assignment-item  {
+.todo-app__assignment-item {
   border-bottom: 1px solid #E6E6E6;
   list-style-type: none;
 }
@@ -108,8 +108,17 @@ body {
   align-items: center;
   padding: 5px;
 }
-
 .assignment-item__current-view:hover {
+  background-color: #FAFAFA;
+}
+.assignment-item__current-view:hover .assignment-item__status:not(:checked) + .assignment-item__status-icon {
+  border-color: #CCCCCC;
+}
+.assignment-item__current-view:hover .assignment-item__delete-button {
+  margin-top: 0px;
+}
+.assignment-item__current-view:hover .assignment-item__delete-button:focus {
+  margin-top: 0px;
   background-color: #FAFAFA;
 }
 
@@ -119,6 +128,15 @@ body {
   height: 30px;
   position: absolute;
   left: -9999px;
+}
+.assignment-item__status:focus + .assignment-item__status-icon {
+  border-color: #CCCCCC;
+}
+.assignment-item__status:checked + .assignment-item__status-icon {
+  background-image: url(images/completed.svg);
+  background-position: 6px 8px;
+  background-repeat: no-repeat;
+  border-color: #5DC2AF;
 }
 
 .assignment-item__status-icon {
@@ -132,24 +150,9 @@ body {
   background-color: #FFF;
 }
 
-.assignment-item__status:focus + .assignment-item__status-icon {
-  border-color: #CCCCCC;
-}
-
-.assignment-item__current-view:hover .assignment-item__status:not(:checked) + .assignment-item__status-icon {
-  border-color: #CCCCCC;
-}
-
-.assignment-item__status:checked + .assignment-item__status-icon {
-  background-image: url(images/completed.svg);
-  background-position: 6px 8px;
-  background-repeat: no-repeat;
-  border-color: #5DC2AF;
-}
-
 .assignment-item__text {
   flex-grow: 1;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 24px;
   text-align: left;
   padding: 12px 0;
@@ -158,28 +161,18 @@ body {
 }
 
 .assignment-item__delete-button {
+  text-indent: -9999px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
   flex-shrink: 0;
   width: 36px;
   height: 36px;
   color: #EBDFDF;
   margin: -9999px 4px 0 12px;
-  text-indent: -9999px;
-  border: none;
   background-color: #FAFAFA;
   background-image: url(images/close.svg);
-  background-repeat: no-repeat;
-  background-position: center;
 }
-
-.assignment-item__current-view:hover .assignment-item__delete-button {
-  margin-top: 0px;
-}
-
-.assignment-item__current-view:hover .assignment-item__delete-button:focus {
-  margin-top: 0px;
-  background-color: #FAFAFA;
-}
-
 .assignment-item__delete-button:focus {
   margin-top: 0px;
   background-color: #FFF;
@@ -206,11 +199,11 @@ body {
   align-items: center;
 }
 
-input[type="radio"]:focus + .assignments-filter {
+input[type=radio]:focus + .assignments-filter {
   border-color: red;
 }
 
-input[type="radio"]:checked + .assignments-filter {
+input[type=radio]:checked + .assignments-filter {
   border-color: #E6E6E6;
 }
 
@@ -230,8 +223,10 @@ input[type="radio"]:checked + .assignments-filter {
 .assignments-clear-completed-button {
   padding: 0;
   font-weight: 300px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   border: none;
   background: none;
 }
+
+/*# sourceMappingURL=output.css.map */
